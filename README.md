@@ -1,6 +1,11 @@
-# api-extensions
+# api-extensions [![Build Status](https://travis-ci.org/ncuesta/api-extensions.png)](https://travis-ci.org/ncuesta/api-extensions)
 
-A collection of extensions for Hypermedia-driven APIs.
+A collection of extensions for Hypermedia-driven APIs following the standard definitions
+at [the api-doc repo](https://github.com/ncuesta/api-doc).
+
+Included extensions:
+
+- `fields`
 
 ## Installation
 
