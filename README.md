@@ -18,7 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### `fields` extension
+
+The behavior of this extension is best described at
+[the api-doc repo](https://github.com/ncuesta/api-doc/blob/master/README.en.md#partial-responses).
+
+By including the `Api::Extensions::Fields` module in any class, you will get a `process_fields`
+method that will handle the creation of partial responses - as described in the linked document.
+
+```ruby
+require 'api/extensions/fields'
+
+class MyApiHandler
+  include Api::Extensions::Fields
+
+  def handle(request)
+    response = fiddle_with request
+    process_fields request[:fields], response, request.path
+  end
+end
+```
+
 
 ## Contributing
 
