@@ -1,8 +1,8 @@
 require 'api/extensions/fields'
 
 Before do
-  @processor = Object.new
-  class << @processor
+  @fields_processor = Object.new
+  class << @fields_processor
     include(Api::Extensions::Fields)
   end
 end
@@ -17,7 +17,7 @@ Given /^I get the fields parameter "(.*)"$/ do |value|
 end
 
 When /^I process the fields parameter$/ do
-  @result = @processor.process_fields @fields, @response, @request_path
+  @result = @fields_processor.process_fields @fields, @response, @request_path
 end
 
 Then /^the resulting response should include the required fields$/ do
