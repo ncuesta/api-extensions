@@ -1,4 +1,4 @@
-# api-extensions [![Build Status](https://travis-ci.org/ncuesta/api-extensions.png)](https://travis-ci.org/ncuesta/api-extensions) [![Dependency Status](https://gemnasium.com/ncuesta/api-extensions.png)](https://gemnasium.com/ncuesta/api-extensions)
+# api-extensions [![Build Status](https://travis-ci.org/ncuesta/api-extensions.png)](https://travis-ci.org/ncuesta/api-extensions) [![Dependency Status](https://gemnasium.com/ncuesta/api-extensions.png)](https://gemnasium.com/ncuesta/api-extensions) [![Code Climate](https://codeclimate.com/github/ncuesta/api-extensions.png)](https://codeclimate.com/github/ncuesta/api-extensions)
 
 A collection of extensions for Hypermedia-driven APIs following the standard definitions
 at [the api-doc repo](https://github.com/ncuesta/api-doc).
