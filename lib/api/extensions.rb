@@ -1,3 +1,4 @@
+require 'api/extensions/expand'
 require 'api/extensions/fields'
 require 'api/extensions/version'
 

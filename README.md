@@ -23,6 +23,32 @@ Or install it yourself as:
 
 ## Usage
 
+### `expand` extension
+
+The behavior of this extension is best described at
+[the api-doc repo](https://github.com/ncuesta/api-doc/blob/master/README.en.md#links-expansion).
+
+By including the `Api::Extensions::Expand` module in any class, you will get a `process_expand`
+method that will handle the expansion of linked resources - as described in the linked document.
+
+Please note that this extension **requires that the including class responds to a `get` method**.
+
+```ruby
+require 'api/extensions/expand'
+
+class MyApiHandler
+
+  def initialize
+    include Api::Extensions::Expand
+  end
+
+  def handle(request)
+    response = fiddle_with request
+    process_expand request[:expand], response
+  end
+end
+```
+
 ### `fields` extension
 
 The behavior of this extension is best described at
@@ -44,6 +70,13 @@ class MyApiHandler
 end
 ```
 
+## Running tests
+
+The test suite uses Cucumber, and can be run through `rake`:
+
+```bash
+$ rake features
+```
 
 ## Contributing
 
