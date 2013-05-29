@@ -6,6 +6,7 @@ at [the api-doc repo](https://github.com/ncuesta/api-doc).
 Included extensions:
 
 - `fields`
+- `expand`
 
 ## Installation
 
