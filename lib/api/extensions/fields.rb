@@ -1,3 +1,8 @@
+#
+# Fields extension
+#
+# https://github.com/ncuesta/api-doc/blob/master/README.en.md#partial-responses
+#
 module Api
   module Extensions
     module Fields
