@@ -3,10 +3,12 @@ require 'api/extensions/expand'
 Before do
   @expand_processor = Object.new
   class << @expand_processor
-    def get url
-    end
+    include Api::Extensions::Expand
 
-    include(Api::Extensions::Expand)
+    expand_with :go_fetch
+
+    def go_fetch url
+    end
   end
 end
 

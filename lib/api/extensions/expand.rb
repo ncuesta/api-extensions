@@ -6,9 +6,11 @@
 module Api
   module Extensions
     module Expand
-      # Check requirements on inclusion
+      # Add expand_with class method on inclusion
       def self.included(base)
-        raise ::Exception.new('Base class must implement a :get method to include the ExpandProcessor module') unless base.method_defined?(:get)
+        @@fetch_method_for_expand = :get
+
+        base.class_eval 'def self.expand_with(symbol); @@fetch_method_for_expand = symbol; end'
       end
 
       # Process the expand functional extension
@@ -44,7 +46,7 @@ module Api
       def expand(resource, link)
         if resource['links'].include?(link)
           sub_resource_uri = resource['links'][link]['href']
-          sub_resource     = get sub_resource_uri
+          sub_resource     = send(fetch_method_for_expand, sub_resource_uri)
 
           # 'self' links replace the original resource
           if link == 'self'
@@ -56,6 +58,11 @@ module Api
 
         resource
       end
+
+      private
+        def fetch_method_for_expand
+          @@fetch_method_for_expand
+        end
     end
   end
 end
