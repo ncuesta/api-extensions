@@ -24,6 +24,22 @@ Or install it yourself as:
 
 ## Usage
 
+### Including all extensions
+
+As a more convenient way of including **all** the extensions, you may just include the module
+`Api::Extensions::All` in your class and you will automatically have included all of the extensions
+listed below.
+
+```ruby
+require 'api/extensions/expand'
+
+class MyApiHandler
+  include Api::Extensions::All
+
+  expand_with :my_resource_fetching_method
+end
+```
+
 ### `expand` extension
 
 The behavior of this extension is best described at
@@ -38,9 +54,12 @@ Please note that this extension **requires that the including class responds to 
 require 'api/extensions/expand'
 
 class MyApiHandler
+  include Api::Extensions::Expand
 
-  def initialize
-    include Api::Extensions::Expand
+  expand_with :go_fetch
+
+  def go_fetch(url)
+    # Go fetch the resource at the given URL and return it
   end
 
   def handle(request)
@@ -86,3 +105,19 @@ $ rake features
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Changelog
+
+### v0.0.3
+
+* Switched `expand` to some metaprogramming: made the fetch method configurable (was hardcoded to `get`)
+* Added a *meta module* `All` for including all API extensions in a single sentence
+
+### v0.0.2
+
+* Added `expand` extension
+
+### v0.0.1
+
+* Initial version
+* Included `fields` extension
